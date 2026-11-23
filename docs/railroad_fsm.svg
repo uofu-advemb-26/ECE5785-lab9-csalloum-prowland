@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="Helvetica, Arial, sans-serif">
+  <title>Railroad crossing FSM</title>
+  <style>
+    .s { fill: #fff; stroke: #222; stroke-width: 2; }
+    .n { font-size: 21px; font-weight: 600; fill: #222; text-anchor: middle; dominant-baseline: central; }
+    .e { fill: none; stroke: #222; stroke-width: 1.6; marker-end: url(#a); }
+    .l { font-family: Menlo, Consolas, monospace; font-size: 15px; fill: #222; paint-order: stroke; stroke: #fff; stroke-width: 6px; stroke-linejoin: round; }
+    .k { font-size: 14px; fill: #555; }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+  </defs>
+  <rect width="1100" height="640" fill="#fff"/>
+
+  <!-- transitions -->
+  <path class="e" d="M8,268 L41.4,303.7"/>
+  <path class="e" d="M184.4,295.5 L335.6,214.5"/><text class="l" x="262" y="244" text-anchor="end">nb_approach</text>
+  <path class="e" d="M184.4,364.5 L335.6,445.5"/><text class="l" x="272" y="430" text-anchor="end">sb_approach</text>
+  <path class="e" d="M400,216 L400,294"/><text class="l" x="412" y="261">sb_approach</text>
+  <path class="e" d="M400,444 L400,366"/><text class="l" x="412" y="411">nb_approach</text>
+  <path class="e" d="M490,180 L610,180"/><text class="l" x="550" y="168" text-anchor="middle">elapsed</text>
+  <path class="e" d="M490,330 L610,330"/><text class="l" x="550" y="318" text-anchor="middle">elapsed</text>
+  <path class="e" d="M490,480 L610,480"/><text class="l" x="550" y="468" text-anchor="middle">elapsed</text>
+  <path class="e" d="M680,216 L680,294"/><text class="l" x="668" y="261" text-anchor="end">sb_approach</text>
+  <path class="e" d="M720,294 L720,216"/><text class="l" x="732" y="261">sb_depart</text>
+  <path class="e" d="M680,444 L680,366"/><text class="l" x="668" y="411" text-anchor="end">nb_approach</text>
+  <path class="e" d="M720,366 L720,444"/><text class="l" x="732" y="411">nb_depart</text>
+  <path class="e" d="M765.8,214 L924.2,296"/><text class="l" x="836" y="236">nb_depart</text>
+  <path class="e" d="M765.8,446 L924.2,364"/><text class="l" x="836" y="436">sb_depart</text>
+  <path class="e" d="M1030,294 V72 Q1030,44 1002,44 H148 Q120,44 120,72 V294"/><text class="l" x="575" y="36" text-anchor="middle">elapsed</text>
+  <path class="e" d="M950,294 V124 Q950,100 926,100 H424 Q400,100 400,124 V144"/><text class="l" x="675" y="92" text-anchor="middle">nb_approach</text>
+  <path class="e" d="M950,366 V532 Q950,556 926,556 H424 Q400,556 400,532 V516"/><text class="l" x="675" y="582" text-anchor="middle">sb_approach</text>
+
+  <!-- states -->
+  <rect class="s" x="30"  y="294" width="180" height="72" rx="36"/><text class="n" x="120" y="330">IDLE</text>
+  <rect class="s" x="310" y="144" width="180" height="72" rx="36"/><text class="n" x="400" y="180">WARN_N</text>
+  <rect class="s" x="310" y="294" width="180" height="72" rx="36"/><text class="n" x="400" y="330">WARN_NS</text>
+  <rect class="s" x="310" y="444" width="180" height="72" rx="36"/><text class="n" x="400" y="480">WARN_S</text>
+  <rect class="s" x="610" y="144" width="180" height="72" rx="36"/><text class="n" x="700" y="180">CLOSED_N</text>
+  <rect class="s" x="610" y="294" width="180" height="72" rx="36"/><text class="n" x="700" y="330">CLOSED_NS</text>
+  <rect class="s" x="610" y="444" width="180" height="72" rx="36"/><text class="n" x="700" y="480">CLOSED_S</text>
+  <rect class="s" x="900" y="294" width="180" height="72" rx="36"/><text class="n" x="990" y="330">CLEAR</text>
+
+  <!-- key -->
+  <text class="k" x="30" y="624">IDLE: alarm off, arms up · WARN_*: alarm on, arms up · CLOSED_*: alarm on, arms down · CLEAR: alarm on, arms up · N/S/NS = trains present</text>
+</svg>
